@@ -208,7 +208,8 @@ public static class Exercises
 
         return count;
     }
-    
+
+    /// <inheritdoc cref="PersistenceMySolution"/>
     public static int PersistenceBetterSolution(long n) {
         if (n / 10 == 0)
             return 0;
@@ -222,6 +223,9 @@ public static class Exercises
         return PersistenceBetterSolution(multiplyOfDigits) + 1;
     }
 
+    /// <summary>
+    /// Method for <see cref="PersistenceOtherSolution"/>
+    /// </summary>
     private static long GetMultiplyOfDigits(long n) {
         long result = n % 10;
 
