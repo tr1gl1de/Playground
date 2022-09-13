@@ -210,7 +210,8 @@ public static class Exercises
     }
 
     /// <inheritdoc cref="PersistenceMySolution"/>
-    public static int PersistenceBetterSolution(long n) {
+    public static int PersistenceBetterSolution(long n)
+    {
         if (n / 10 == 0)
             return 0;
 
