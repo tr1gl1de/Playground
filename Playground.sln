@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeWars", "CodeWars", "{3D4B34AB-CD87-4A6F-89C4-0DEEE359CF06}"
 EndProject
@@ -20,6 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockOnliner", "StockOnline
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterDelegateExample", "FilterDelegateExample\FilterDelegateExample.csproj", "{284ACB7C-9E02-4A80-ADA4-EA71340E0F7A}"
 EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

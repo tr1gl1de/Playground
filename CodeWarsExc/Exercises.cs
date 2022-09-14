@@ -176,28 +176,6 @@ public static class Exercises
     /// 25      => 2  ->  (2 * 5 = 10 -> 1 * 0  = 0)<br/>
     /// 999     => 4  ->  (9 * 9 * 9 = 729 -> 7*2*9 = 126 -> 1*2*6 = 12 -> 1 * 2 = 2)<br/>
     /// </remarks>
-    [Obsolete("not good solution")]
-    public static int PersistenceMySolution(long n)
-    {
-        // BUG: Infinity cycle
-        var counter = 0;
-        var number = n;
-        var listOfDigits = new LinkedList<long>();
-        
-        while (number > 10)
-        {
-            number %= 10;
-            listOfDigits.AddLast(number);
-        }
-        while (listOfDigits.Count > 0)
-        {
-            counter++;
-            
-        }
-        return counter;
-    }
-    
-    /// <inheritdoc cref="PersistenceMySolution"/>
     public static int PersistenceOtherSolution(long n) {
         int count = 0;
 
@@ -209,7 +187,7 @@ public static class Exercises
         return count;
     }
 
-    /// <inheritdoc cref="PersistenceMySolution"/>
+    /// <inheritdoc cref="PersistenceOtherSolution"/>
     public static int PersistenceWithRecursiveSolution(long n)
     {
         if (n / 10 == 0)
