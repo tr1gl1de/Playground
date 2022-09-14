@@ -37,9 +37,10 @@ internal static class Program
     /// <summary>
     /// A method to filter out the people you need
     /// </summary>
+    /// <param name="title">Title of filter</param>
     /// <param name="persons">A list of people</param>
     /// <param name="filter">Method for filter</param>
-    /// <returns>A filtered list of people</returns>
+    /// <returns>A filtered list of people on Console</returns>
     private static void DisplayPeople(string title, List<Person> persons, FilterDelegate filter)
     {
         Console.WriteLine(title);
