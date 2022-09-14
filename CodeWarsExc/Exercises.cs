@@ -210,7 +210,7 @@ public static class Exercises
     }
 
     /// <inheritdoc cref="PersistenceMySolution"/>
-    public static int PersistenceBetterSolution(long n)
+    public static int PersistenceWithRecursiveSolution(long n)
     {
         if (n / 10 == 0)
             return 0;
@@ -221,7 +221,7 @@ public static class Exercises
             multiplyOfDigits *= (n % 10);
         }
 
-        return PersistenceBetterSolution(multiplyOfDigits) + 1;
+        return PersistenceWithRecursiveSolution(multiplyOfDigits) + 1;
     }
 
     /// <summary>
