@@ -1,7 +1,8 @@
-#define MaskifyBenchmraks
-#define GimmeBecnhmark
-#define CounterBitsBecnhmrak
-#define PersistenceBenchmark
+// #define MaskifyBenchmraks
+// #define GimmeBecnhmark
+// #define CounterBitsBecnhmrak
+// #define PersistenceBenchmark
+#define RgbToHexBenchmark
 
 using BenchmarkDotNet.Attributes;
 using CodeWarsExc;
@@ -108,6 +109,45 @@ public class MyExercisesBenchmark
         var result = Exercises.PersistenceWithRecursiveSolution(number);
     }
     
+    #endif
+    #endregion
+
+    #region RgbToHex
+    #if RgbToHexBenchmark
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexMySolutionBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexMySolution(r, g, b);
+    }
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexWithIfFuncBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexWithIfFunc(r, g, b);
+    }
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexMyWithMathBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexMySolution(r, g, b);
+    }
+
     #endif
     #endregion
 }
