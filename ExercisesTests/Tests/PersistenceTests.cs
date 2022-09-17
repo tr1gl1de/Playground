@@ -1,8 +1,7 @@
 using CodeWarsExc;
-using ExercisesTests.Utils;
 using Xunit;
 
-namespace ExercisesTests;
+namespace ExercisesTests.Tests;
 
 public class PersistenceTests
 {
