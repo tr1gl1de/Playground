@@ -1,8 +1,8 @@
-// #define MaskifyBenchmraks
-// #define GimmeBecnhmark
-// #define CounterBitsBecnhmrak
-// #define PersistenceBenchmark
-#define RgbToHexBenchmark
+#define MaskifyBenchmarks
+#define GimmeBenchmarks
+#define CounterBitsBenchmarks
+#define PersistenceBenchmark
+#define RgbToHexBenchmarks
 
 using BenchmarkDotNet.Attributes;
 using CodeWarsExc;
@@ -14,7 +14,7 @@ namespace Benchmarks;
 public class MyExercisesBenchmark
 {
     #region Maskify
-    #if MaskifyBenchmraks
+    #if MaskifyBenchmarks
 
     [Benchmark(Baseline = true)]
     public void MaskifyTestWithFourLengthInput()
@@ -44,7 +44,7 @@ public class MyExercisesBenchmark
     #endregion
 
     #region Gimme
-    #if GimmeBecnhmark
+    #if GimmeBenchmarks
     
     [Benchmark(Baseline = true)]
     public void GimmeWithCycle()
@@ -62,7 +62,7 @@ public class MyExercisesBenchmark
     #endregion
 
     #region CounterBits
-    #if CounterBitsBecnhmrak
+    #if CounterBitsBenchmarks
     
     [Benchmark(Baseline = true)]
     [Arguments(0)]
@@ -113,7 +113,7 @@ public class MyExercisesBenchmark
     #endregion
 
     #region RgbToHex
-    #if RgbToHexBenchmark
+    #if RgbToHexBenchmarks
     
     [Benchmark]
     [Arguments(0, 0, 0)]
