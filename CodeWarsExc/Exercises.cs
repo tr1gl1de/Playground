@@ -124,6 +124,57 @@ public static class Exercises
         return cc.Substring(cc.Length - 4).PadLeft(cc.Length, '#');
     }
     
+    /// <summary>
+    /// Method for converting RGB ints to one string HEX
+    /// </summary>
+    /// <param name="r">Red spectre value</param>
+    /// <param name="g">Green spectre value</param>
+    /// <param name="b">Blue spectre value</param>
+    /// <returns>HEX presentation in string</returns>
+    public static string RgbToHexMySolution(int r, int g, int b)
+    {
+        var args = new[] { r, g, b };
+        for (var i = 0; i < args.Length; i++)
+        {
+            args[i] = args[i] switch
+            {
+                > byte.MaxValue => byte.MaxValue,
+                < byte.MinValue => byte.MinValue,
+                _ => args[i]
+            };
+        }
+
+        var argsNew = Array.ConvertAll(args, Convert.ToByte);
+        var result = Convert.ToHexString(argsNew, 0, 3);
+        return result;
+    }
+
+    /// <inheritdoc cref="RgbToHexMySolution"/>
+    public static string RgbToHexWithMathMax(int r, int g, int b)
+    {
+        r = Math.Max(Math.Min(255, r), 0);
+        g = Math.Max(Math.Min(255, g), 0);
+        b = Math.Max(Math.Min(255, b), 0);
+        return $"{r:X2}{g:X2}{b:X2}";
+    }
+
+    /// <inheritdoc cref="RgbToHexMySolution"/>
+    public static string RgbToHexWithIfFunc(int r, int g, int b)
+    {
+        return ToHex(r) + ToHex(g) + ToHex(b);
+    }
+
+    private static string ToHex(int number)
+    {
+        number = number switch
+        {
+            < 0 => 0,
+            > 255 => 255,
+            _ => number
+        };
+        return number.ToString("X2");
+    }
+
     #endregion
 
     #region 6kyu

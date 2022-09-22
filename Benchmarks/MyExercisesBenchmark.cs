@@ -1,7 +1,8 @@
-#define MaskifyBenchmraks
-#define GimmeBecnhmark
-#define CounterBitsBecnhmrak
+#define MaskifyBenchmarks
+#define GimmeBenchmarks
+#define CounterBitsBenchmarks
 #define PersistenceBenchmark
+#define RgbToHexBenchmarks
 
 using BenchmarkDotNet.Attributes;
 using CodeWarsExc;
@@ -13,7 +14,7 @@ namespace Benchmarks;
 public class MyExercisesBenchmark
 {
     #region Maskify
-    #if MaskifyBenchmraks
+    #if MaskifyBenchmarks
 
     [Benchmark(Baseline = true)]
     public void MaskifyTestWithFourLengthInput()
@@ -43,7 +44,7 @@ public class MyExercisesBenchmark
     #endregion
 
     #region Gimme
-    #if GimmeBecnhmark
+    #if GimmeBenchmarks
     
     [Benchmark(Baseline = true)]
     public void GimmeWithCycle()
@@ -61,7 +62,7 @@ public class MyExercisesBenchmark
     #endregion
 
     #region CounterBits
-    #if CounterBitsBecnhmrak
+    #if CounterBitsBenchmarks
     
     [Benchmark(Baseline = true)]
     [Arguments(0)]
@@ -108,6 +109,45 @@ public class MyExercisesBenchmark
         var result = Exercises.PersistenceWithRecursiveSolution(number);
     }
     
+    #endif
+    #endregion
+
+    #region RgbToHex
+    #if RgbToHexBenchmarks
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexMySolutionBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexMySolution(r, g, b);
+    }
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexWithIfFuncBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexWithIfFunc(r, g, b);
+    }
+    
+    [Benchmark]
+    [Arguments(0, 0, 0)]
+    [Arguments(255, 255, 255)]
+    [Arguments(255, 255, 300)]
+    [Arguments(148, 0, 211)]
+    [Arguments(148, -20, 211)]
+    public void RgbToHexMyWithMathBenchmark(int r, int g, int b)
+    {
+        var result = Exercises.RgbToHexMySolution(r, g, b);
+    }
+
     #endif
     #endregion
 }
