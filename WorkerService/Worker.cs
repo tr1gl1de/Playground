@@ -3,6 +3,12 @@ namespace WorkerService;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
+    // private int _counter;
+    public static int counter
+    {
+        get => counter;
+        private set { }
+    }
 
     public Worker(ILogger<Worker> logger)
     {
@@ -11,7 +17,6 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        int counter = 0;
         while (!stoppingToken.IsCancellationRequested)
         {
             try
@@ -24,7 +29,7 @@ public class Worker : BackgroundService
 
                 _logger.LogInformation("Worker running at: {time}, counter:{counter}",
                     DateTimeOffset.Now, counter);
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(250, stoppingToken);
             }
             
             catch (TaskCanceledException cancelEx)
