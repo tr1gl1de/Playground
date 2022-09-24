@@ -3,12 +3,6 @@ namespace WorkerService;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
-    // private int _counter;
-    public static int counter
-    {
-        get => counter;
-        private set { }
-    }
 
     public Worker(ILogger<Worker> logger)
     {
@@ -17,22 +11,18 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        int counter = 0;
+
         while (!stoppingToken.IsCancellationRequested)
         {
             try
             {
                 counter++;
-                if (counter > 10)
-                {
-                    await StopAsync(stoppingToken);
-                }
-
                 _logger.LogInformation("Worker running at: {time}, counter:{counter}",
                     DateTimeOffset.Now, counter);
-                await Task.Delay(250, stoppingToken);
             }
             
-            catch (TaskCanceledException cancelEx)
+            catch (TaskCanceledException)
             {
                 _logger.LogInformation("Worker was stopped");
                 return;
@@ -43,12 +33,7 @@ public class Worker : BackgroundService
                 _logger.LogCritical("Worker have exception: {fatalException}", fatalException.Message);
                 return;
             }
-            // But i dont know it needed here ?
-            finally
-            {
-                Dispose();
-            }
-
+            await Task.Delay(1000, stoppingToken);
         }
     }
 }
