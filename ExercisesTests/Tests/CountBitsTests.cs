@@ -1,7 +1,7 @@
 using CodeWarsExc;
 using Xunit;
 
-namespace ExercisesTests;
+namespace ExercisesTests.Tests;
 
 public class CountBitsTests
 {
