@@ -1,7 +1,6 @@
 using MediatR;
 using MediatrExample.Persistence;
 using MediatrExample.Queries;
-using NuGet.Protocol.Plugins;
 
 namespace MediatrExample.Handlers;
 

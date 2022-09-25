@@ -1,4 +1,5 @@
 using MediatR;
+using MediatrExample.Behaviors;
 using MediatrExample.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddSingleton<FakeDataStore>();
+// <,> notation use for all types
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
 var app = builder.Build();
 
