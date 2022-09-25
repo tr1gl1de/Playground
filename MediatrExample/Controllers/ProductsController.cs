@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using MediatrExample.Commands;
+using MediatrExample.Notifications;
 using MediatrExample.Queries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,7 @@ namespace MediatrExample.Controllers
         public async Task<ActionResult> AddProduct([FromBody] Product product)
         {
             var createdProduct = await _mediator.Send(new AddProductCommand(product));
+            await _mediator.Publish(new ProductAddedNotification(createdProduct));
             return CreatedAtRoute("GetProductByIdAsync", new { id = createdProduct.Id }, createdProduct);
         }
 
