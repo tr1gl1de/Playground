@@ -1,32 +1,25 @@
-﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace MediatrExample;
+// Add services to the container.
 
-internal static class Program
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    internal static async Task Main(string[] args)
-    {
-        var mediator = BuildMediator();
-        Console.WriteLine(await mediator.Send(new Ping()));
-    }
-
-    private static IMediator BuildMediator()
-    {
-        var services = new ServiceCollection()
-            .AddMediatR(typeof(Program).Assembly);
-
-        var provider = services.BuildServiceProvider();
-        return provider.GetRequiredService<IMediator>();
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-internal record Ping : IRequest<string> {}
+app.UseHttpsRedirection();
 
-internal class PingHandler : IRequestHandler<Ping, string>
-{
-    public Task<string> Handle(Ping request, CancellationToken cancellationToken)
-    {
-        return Task.FromResult("Pong");
-    }
-}
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
