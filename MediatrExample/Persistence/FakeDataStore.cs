@@ -14,12 +14,15 @@ public class FakeDataStore
         };
     }
 
-    public async Task AddProduct(Product product)
+    public async Task AddProductAsync(Product product)
     {
         _products.Add(product);
         await Task.CompletedTask;
     }
 
-    public async Task<IEnumerable<Product>> GetAllProducts() =>
+    public async Task<IEnumerable<Product>> GetAllProductsAsync() =>
         await Task.FromResult(_products);
+
+    public async Task<Product> GetProductByIdAsync(long id)
+        => await Task.FromResult(_products.Single(x => x.Id == id));
 }
