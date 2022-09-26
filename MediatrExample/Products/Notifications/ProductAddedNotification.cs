@@ -1,5 +1,5 @@
 using MediatR;
 
-namespace MediatrExample.Notifications;
+namespace MediatrExample.Products.Notifications;
 
 public record ProductAddedNotification(Product Product) : INotification;

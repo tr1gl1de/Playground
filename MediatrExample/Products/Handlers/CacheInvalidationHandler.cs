@@ -1,8 +1,8 @@
 using MediatR;
-using MediatrExample.Notifications;
 using MediatrExample.Persistence;
+using MediatrExample.Products.Notifications;
 
-namespace MediatrExample.Handlers;
+namespace MediatrExample.Products.Handlers;
 
 public class CacheInvalidationHandler : INotificationHandler<ProductAddedNotification>
 {

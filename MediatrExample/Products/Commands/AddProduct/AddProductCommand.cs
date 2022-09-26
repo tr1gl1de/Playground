@@ -1,5 +1,5 @@
 using MediatR;
 
-namespace MediatrExample.Commands;
+namespace MediatrExample.Products.Commands.AddProduct;
 
 public record AddProductCommand(Product Product) : IRequest<Product>;
