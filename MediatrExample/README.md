@@ -2,4 +2,6 @@
 
 ## ToDo
 - [x] Add logging
-- [ ] Add validation
+- [x] Add validation
+- [ ] Add validators for Queries
+- [ ] Add tests for commands and queries
