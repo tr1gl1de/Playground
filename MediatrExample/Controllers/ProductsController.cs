@@ -1,7 +1,8 @@
 using MediatR;
-using MediatrExample.Commands;
-using MediatrExample.Notifications;
-using MediatrExample.Queries;
+using MediatrExample.Products.Commands.AddProduct;
+using MediatrExample.Products.Notifications;
+using MediatrExample.Products.Queries.GetProductById;
+using MediatrExample.Products.Queries.GetProducts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediatrExample.Controllers

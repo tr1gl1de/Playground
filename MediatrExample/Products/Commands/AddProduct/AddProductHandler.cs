@@ -1,8 +1,7 @@
 using MediatR;
-using MediatrExample.Commands;
 using MediatrExample.Persistence;
 
-namespace MediatrExample.Handlers;
+namespace MediatrExample.Products.Commands.AddProduct;
 
 public class AddProductHandler : IRequestHandler<AddProductCommand, Product>
 {

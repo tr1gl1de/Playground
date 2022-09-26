@@ -1,8 +1,7 @@
 using MediatR;
 using MediatrExample.Persistence;
-using MediatrExample.Queries;
 
-namespace MediatrExample.Handlers;
+namespace MediatrExample.Products.Queries.GetProductById;
 
 public class GetProductByIdHandler : IRequestHandler<GetProductByIdQuery, Product>
 {
